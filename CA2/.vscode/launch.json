@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/mahdis/Me/university/Network/computer-network-spring-2026/CA2/code",
+      "program": "/Users/mahdis/Me/university/Network/computer-network-spring-2026/CA2/code/build/Debug/outDebug"
+    }
+  ]
+}

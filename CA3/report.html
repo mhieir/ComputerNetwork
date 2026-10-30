@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GNS3 Network Emulation and Routing Protocols</title>
+    <style>
+        :root {
+            --primary-color: #004080;
+            --secondary-color: #0066cc;
+            --accent-color: #e6f2ff;
+            --text-color: #2c3e50;
+            --bg-color: #f4f7f6;
+            --border-color: #d1d9e6;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 40px 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid var(--primary-color);
+        }
+        .university-header {
+            font-size: 1.1em;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        .meta-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 25px;
+            text-align: left;
+            background-color: var(--accent-color);
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 0.95em;
+        }
+        .meta-info p {
+            margin: 0;
+        }
+        h2 {
+            color: var(--primary-color);
+            margin-top: 40px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: var(--secondary-color);
+            margin-top: 25px;
+            font-size: 1.15em;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .question-box {
+            background-color: #fff9e6;
+            border-left: 5px solid #ffcc00;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .question-box h4 {
+            margin-top: 0;
+            color: #b38f00;
+        }
+        .result-container {
+            margin: 25px 0;
+            text-align: center;
+            background: #fafafa;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+        .result-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .result-caption {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        .analysis-box {
+            background-color: #fdfdfd;
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px 20px;
+            margin: 15px 0 25px 0;
+            font-size: 0.95em;
+            color: #444;
+        }
+        .command-block {
+            background-color: #2b2b2b;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+            margin-bottom: 15px;
+        }
+        @media print {
+            @page { size: A4 portrait; margin: 20mm; }
+            body { background-color: white; color: black; padding: 0; margin: 0; max-width: 100%; }
+            .container { box-shadow: none; padding: 0; margin: 0; border: none; }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+            .meta-info, .question-box, .result-container, .analysis-box, .command-block { page-break-inside: avoid; break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="university-header">University of Tehran<br>Department of Electrical and Computer Engineering</div>
+            <h1>Computer Assignment 3: Network Emulation<br>GNS3, VLANs, and Routing Protocols</h1>
+            
+            <div class="meta-info">
+                <div>
+                    <p><strong>Course:</strong> Computer Networks</p>
+                    <p><strong>Instructor:</strong> Dr. Nasser Yazdani</p>
+                    <p><strong>Teaching Assistant:</strong> Maede Roshan</p>
+                </div>
+                <div>
+                    <p><strong>Group Members:</strong> Mahdis Mirzaei, Fatemeh Bolouk Azari</p>
+                    <p><strong>Student ID:</strong> 810102550, 810102605</p>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <h2>1. Emulation Environment Setup</h2>
+            <p>The emulation environment was configured using GNS3. Cisco <code>c7200-adventerprisek9-mz</code> router images were imported and allocated specific hardware slots to ensure adequate port availability:</p>
+            <ul>
+                <li><strong>Slot 1 (PA-2FE-TX):</strong> Adds two extra Fast Ethernet ports to the router. It is used to connect the router to local devices like switches or PCs.</li>
+                <li><strong>Slot 2 (PA-4T+):</strong> Adds four serial ports to the router, used specifically for WAN connections to simulate long-distance links between different networks.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>2. Basic Switching Topology</h2>
+            
+            <h3>2.1 Objective and Architecture</h3>
+            <p>A hierarchical switching topology was implemented consisting of a distribution switch (Switch 3) and two access switches (Switch 1 and Switch 2). Four Virtual PCs were assigned IP addresses within the <code>192.168.1.0/24</code> broadcast domain.</p>
+
+            <div class="result-container">
+                <img src="part2-topology.png" alt="Basic Switching Topology in GNS3">
+                <div class="result-caption">
+                    <strong>Figure 2.1:</strong> GNS3 workspace displaying the hierarchical switching topology.
+                </div>
+            </div>
+
+            <h3>2.2 Results and Verification</h3>
+            <div class="analysis-box">
+                <p style="margin-bottom: 0;"><strong>Analysis:</strong> When the simulation first starts, the ARP tables of the VPCSs are empty. Using the <code>ping</code> command in their console, simple ICMP messages are exchanged so that the ARP table can be dynamically updated.</p>
+            </div>
+            
+            <div class="result-container">
+                <img src="part2-ping.png" alt="Switching Topology Ping Results">
+                <div class="result-caption">
+                    <strong>Figure 2.2:</strong> Successful ICMP communication and ARP table generation between PCs across the multi-switch fabric.
+                </div>
+            </div>
+        </section>
+
+       <section>
+            <h2>3. Virtual Local Area Networks (VLANs) & Inter-VLAN Routing</h2>
+            
+            <h3>3.1 Network Topology</h3>
+            <p>To enable communication between VLAN 10 and VLAN 20, a Router-on-a-Stick topology was deployed. The switch port connected to Router 1 (R1) was configured as an 802.1Q trunk.</p>
+
+            <div class="result-container">
+                <img src="part3-topology.png" alt="VLAN Topology">
+                <div class="result-caption">
+                    <strong>Figure 3.1:</strong> GNS3 workspace displaying the Router-on-a-Stick VLAN topology.
+                </div>
+            </div>
+
+            <h3>3.2 Architecture and Router Configuration</h3>
+            <p>On R1, the physical interface was divided into two logical sub-interfaces (<code>f0/0.10</code> and <code>f0/0.20</code>), acting as the default gateways for their respective VLANs.</p>
+
+            <div class="result-container">
+                <img src="r1-config.png" alt="R1 Sub-interface Configuration">
+                <div class="result-caption">
+                    <strong>Figure 3.2:</strong> Configuration of 802.1Q encapsulation and IP addressing on R1's sub-interfaces.
+                </div>
+            </div>
+
+            <h3>3.3 Routing Table Verification</h3>
+            <div class="analysis-box">
+                <p style="margin-bottom: 0;"><strong>Analysis:</strong> By using the <code>show ip route</code> command, we can verify that the router has successfully identified both VLAN subnets as "directly connected" (denoted by the 'C'). This indicates that R1 is now capable of routing traffic between the two separate broadcast domains.</p>
+            </div>
+
+            <div class="result-container">
+                <img src="r1-route.png" alt="R1 Routing Table">
+                <div class="result-caption">
+                    <strong>Figure 3.3:</strong> R1 Routing Table confirming the successful attachment of VLAN 10 and VLAN 20.
+                </div>
+            </div>
+
+            <h3>3.4 Inter-VLAN Connectivity Results</h3>
+            <p>With the router fully configured, connectivity was tested across the network. The initial ICMP Echo Requests experienced a slight delay as the router utilized ARP to resolve the destination MAC addresses. Subsequent packets were routed seamlessly with minimal latency, proving successful Inter-VLAN communication.</p>
+
+            <div class="result-container">
+                <img src="all-pcs-console.png" alt="Combined PC Consoles">
+                <div class="result-caption">
+                    <strong>Figure 3.4:</strong> Combined console view of PC1 through PC4 displaying IP assignments, gateway configurations, and successful inter-VLAN ping results.
+                </div>
+            </div>
+
+          
+        </section>
+
+        <section>
+            <h2>4. Static Routing & Link Redundancy</h2>
+            
+            <h3>4.1 Network Topology</h3>
+            <p>A four-router core network was established using serial point-to-point links operating on <code>/30</code> subnets to simulate a Wide Area Network (WAN). Edge networks were connected via FastEthernet interfaces.</p>
+
+            <div class="result-container">
+                <img src="part4-topology.png" alt="Static Routing Topology">
+                <div class="result-caption">
+                    <strong>Figure 4.1:</strong> GNS3 workspace displaying the 4-router WAN topology with redundant serial links.
+                </div>
+            </div>
+
+            <h3>4.2 Static Route Configuration</h3>
+            <p>Static routes were explicitly defined on all routers to ensure end-to-end connectivity. To provide fault tolerance, "Floating Static Routes" were configured with a higher Administrative Distance (AD = 10) to act as backup paths.</p>
+
+            <div class="command-block">
+                ! Primary and Backup route configuration on R3<br>
+                R3(config)# ip route 192.168.4.0 255.255.255.0 10.0.0.2<br>
+                R3(config)# ip route 192.168.4.0 255.255.255.0 10.0.0.10 10
+            </div>
+
+            <h3>4.3 Normal Routing State</h3>
+            <p>Initial connectivity was verified via ICMP. The routing tables for all four routers successfully registered the statically assigned primary paths.</p>
+
+            <div class="result-container">
+                <img src="part4-normal-route.png" alt="Normal Routing Tables for 4 Routers">
+                <div class="result-caption">
+                    <strong>Figure 4.2:</strong> Normal state routing tables across the four core routers.
+                </div>
+            </div>
+
+            <div class="result-container">
+                <img src="part4-normal-ping.png" alt="Normal Ping Test">
+                <div class="result-caption">
+                    <strong>Figure 4.3:</strong> Successful end-to-end ICMP ping under normal network conditions.
+                </div>
+            </div>
+
+            <h3>4.4 Failover Simulation</h3>
+            <p>To test the redundant architecture, the primary serial interface (<code>s2/0</code> on R3) was manually shut down. The routing table immediately converged to utilize the floating static route (via R2), maintaining uninterrupted connectivity between the edge networks.</p>
+
+            <div class="result-container">
+                <div class="grid-2x2">
+                    <img src="part4-failover-route.png" alt="Failover Routing Table">
+                    <img src="part4-failover-ping.png" alt="Failover Ping and Trace">
+                    <div class="grid-caption">
+                        <strong>Figure 4.4:</strong> Left: Updated routing table on R3 showing the activated backup route. Right: Sustained ping and trace route verifying the new path through 10.0.0.10.
+                    </div>
+                </div>
+            </div>
+
+         
+        </section>
+
+      <section>
+            <h2>5. Dynamic Routing (OSPF)</h2>
+            
+            <h3>5.1 Network Topology Setup</h3>
+            <p>To eliminate the scalability limitations of static routing, the network was transitioned to use the Open Shortest Path First (OSPF) Link-State routing protocol. The IP addressing scheme was updated to reflect the new dynamic routing scenario.</p>
+
+            <div class="result-container">
+                <img src="part5-topology.png" alt="OSPF Topology">
+                <div class="result-caption">
+                    <strong>Figure 5.1:</strong> Updated GNS3 topology prepared for OSPF dynamic routing.
+                </div>
+            </div>
+
+            <h3>5.2 OSPF Configuration</h3>
+            <p>Static routes were removed from the routers to prevent conflicts. OSPF Process ID 1 was then enabled globally on all core routers, and connected networks were advertised into Area 0 (the backbone area) using wildcard masks.</p>
+
+            <div class="command-block">
+                ! Example OSPF Configuration on R3<br>
+                R3(config)# router ospf 1<br>
+                R3(config-router)# network 192.168.1.0 0.0.0.255 area 0<br>
+                R3(config-router)# network 10.0.0.0 0.0.0.3 area 0<br>
+                R3(config-router)# network 10.0.0.8 0.0.0.3 area 0
+            </div>
+
+            <h3>5.3 Verification and Network Convergence</h3>
+            <p>Once configured, the routers successfully exchanged Link-State Advertisements (LSAs), formed neighbor adjacencies, and populated their routing tables automatically. The final end-to-end ping test was completely successful, confirming that OSPF had correctly mapped the topology. The initial ping delay reflects the time required for the network to resolve addresses dynamically across the newly established OSPF routes.</p>
+
+            <div class="result-container">
+                <div class="grid-2x2">
+                    <img src="ospf-neighbor.png" alt="OSPF Neighbor Table">
+                    <img src="ospf-database.png" alt="OSPF Database">
+                    <img src="ospf-route.png" alt="OSPF Routing Table">
+                    <img src="ospf-ping.png" alt="OSPF Ping Test">
+                    <div class="grid-caption">
+                        <strong>Figure 5.2:</strong> OSPF Diagnostic outputs. Top Left: Neighbor adjacencies in the FULL state. Top Right: Link-State Database sharing router IDs. Bottom Left: Dynamically learned paths identified by 'O' routes. Bottom Right: End-to-end ping verification showing successful routing.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>6. Conclusion</h2>
+            <p>This computer assignment successfully demonstrated the progression of network design from simple Layer 2 switching to complex Layer 3 routing. By implementing inter-VLAN segmentation, manually configuring static routes with failover redundancy, and finally deploying the OSPF dynamic routing protocol, we verified the fundamental mechanisms that allow robust, fault-tolerant communication across Wide Area Networks.</p>
+        </section>
+
+    </div>
+</body>
+</html>

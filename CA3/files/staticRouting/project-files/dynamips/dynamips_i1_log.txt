@@ -1,0 +1,78 @@
+Jun 17 09:18:29.951 HYPERVISOR: Release 0.2.23-amd64/Darwin (tag 2023010200)
+Jun 17 09:18:29.952 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 61646.
+Jun 17 09:18:29.959 HYPERVISOR: exec_cmd: hypervisor version 
+Jun 17 09:18:29.960 HYPERVISOR: exec_cmd: hypervisor working_dir /Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips 
+Jun 17 09:18:29.960 GENERAL: working_dir=/Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips
+Jun 17 09:18:29.960 HYPERVISOR: exec_cmd: hypervisor working_dir /Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips/f1149fae-4926-4a34-acd9-558cf63c170f 
+Jun 17 09:18:29.960 GENERAL: working_dir=/Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips/f1149fae-4926-4a34-acd9-558cf63c170f
+Jun 17 09:18:29.960 HYPERVISOR: exec_cmd: vm create R1 1 c7200 
+Jun 17 09:18:29.960 VM: VM R1 created.
+Jun 17 09:18:29.960 HYPERVISOR: exec_cmd: vm set_con_tcp_port R1 5001 
+Jun 17 09:18:29.960 HYPERVISOR: exec_cmd: c7200 get_mac_addr R1 
+Jun 17 09:18:29.961 HYPERVISOR: exec_cmd: vm get_status R1 
+Jun 17 09:18:29.961 HYPERVISOR: exec_cmd: vm slot_add_binding R1 0 0 C7200-IO-FE 
+Jun 17 09:18:29.961 HYPERVISOR: exec_cmd: vm set_disk0 R1 0 
+Jun 17 09:18:29.961 HYPERVISOR: exec_cmd: vm set_ios R1 /Users/mahdis/Downloads/c7200-adventerprisek9-mz.151-4.M1.bin 
+Jun 17 09:18:29.961 HYPERVISOR: exec_cmd: vm set_nvram R1 512 
+Jun 17 09:18:29.961 HYPERVISOR: exec_cmd: vm set_ram R1 512 
+Jun 17 09:18:29.962 HYPERVISOR: exec_cmd: vm get_status R1 
+Jun 17 09:18:29.962 HYPERVISOR: exec_cmd: vm slot_add_binding R1 1 0 PA-FE-TX 
+Jun 17 09:18:29.962 HYPERVISOR: exec_cmd: vm get_status R1 
+Jun 17 09:18:29.962 HYPERVISOR: exec_cmd: vm slot_add_binding R1 2 0 PA-4T+ 
+Jun 17 09:18:55.734 HYPERVISOR: exec_cmd: nio create_udp udp-38754a11-f82d-45d7-babb-ad449776defe 10004 127.0.0.1 10005 
+Jun 17 09:18:55.966 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 2 0 udp-38754a11-f82d-45d7-babb-ad449776defe 
+Jun 17 09:18:55.967 HYPERVISOR: exec_cmd: vm get_status R1 
+Jun 17 09:19:04.586 HYPERVISOR: exec_cmd: nio create_udp udp-8dd01f64-326f-4363-aa88-0ac03bc5a087 10008 127.0.0.1 10009 
+Jun 17 09:19:04.587 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 2 1 udp-8dd01f64-326f-4363-aa88-0ac03bc5a087 
+Jun 17 09:19:04.587 HYPERVISOR: exec_cmd: vm get_status R1 
+Jun 17 09:20:27.412 HYPERVISOR: exec_cmd: vm create Ghost 0 c7200 
+Jun 17 09:20:27.412 VM: VM Ghost created.
+Jun 17 09:20:27.413 HYPERVISOR: exec_cmd: vm set_ios Ghost /Users/mahdis/Downloads/c7200-adventerprisek9-mz.151-4.M1.bin 
+Jun 17 09:20:27.413 HYPERVISOR: exec_cmd: vm set_ghost_status Ghost 1 
+Jun 17 09:20:27.413 HYPERVISOR: exec_cmd: vm set_ghost_file Ghost /Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips/c7200-adventerprisek9-mz.151-4.M1.bin-512.ghost 
+Jun 17 09:20:27.413 HYPERVISOR: exec_cmd: vm set_ram Ghost 512 
+Jun 17 09:20:27.413 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Jun 17 09:20:27.414 HYPERVISOR: exec_cmd: vm set_config Ghost configs/i0_startup-config.cfg 
+Jun 17 09:20:27.415 HYPERVISOR: exec_cmd: vm start Ghost 
+Jun 17 09:20:27.680 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Jun 17 09:20:27.681 HYPERVISOR: exec_cmd: vm stop Ghost 
+Jun 17 09:20:27.857 VM: VM Ghost shutdown.
+Jun 17 09:20:27.858 HYPERVISOR: exec_cmd: vm extract_config Ghost 
+Jun 17 09:20:27.858 HYPERVISOR: exec_cmd: vm clean_delete Ghost 
+Jun 17 09:20:27.858 VM: VM Ghost destroyed.
+Jun 17 09:20:27.859 HYPERVISOR: exec_cmd: vm set_ghost_status R1 2 
+Jun 17 09:20:27.860 HYPERVISOR: exec_cmd: vm set_ghost_file R1 /Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips/c7200-adventerprisek9-mz.151-4.M1.bin-512.ghost 
+Jun 17 09:20:27.860 HYPERVISOR: exec_cmd: vm get_status R1 
+Jun 17 09:20:27.860 HYPERVISOR: exec_cmd: vm set_config R1 configs/i1_startup-config.cfg 
+Jun 17 09:20:27.860 HYPERVISOR: exec_cmd: vm start R1 
+Jun 17 09:20:58.120 HYPERVISOR: exec_cmd: vm extract_config R1 
+Jun 17 09:23:13.018 HYPERVISOR: exec_cmd: vm set_ghost_status R1 2 
+Jun 17 09:23:13.019 HYPERVISOR: exec_cmd: vm set_ghost_file R1 /Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips/c7200-adventerprisek9-mz.151-4.M1.bin-512.ghost 
+Jun 17 09:23:13.019 HYPERVISOR: exec_cmd: vm get_status R1 
+Jun 17 09:23:28.112 HYPERVISOR: exec_cmd: vm get_status R1 
+Jun 17 09:23:28.112 HYPERVISOR: exec_cmd: vm stop R1 
+Jun 17 09:23:28.202 VM: VM R1 shutdown.
+Jun 17 09:23:28.202 HYPERVISOR: exec_cmd: vm extract_config R1 
+Jun 17 09:23:30.712 HYPERVISOR: exec_cmd: vm set_ghost_status R1 2 
+Jun 17 09:23:30.712 HYPERVISOR: exec_cmd: vm set_ghost_file R1 /Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips/c7200-adventerprisek9-mz.151-4.M1.bin-512.ghost 
+Jun 17 09:23:30.712 HYPERVISOR: exec_cmd: vm get_status R1 
+Jun 17 09:23:30.714 HYPERVISOR: exec_cmd: vm set_config R1 configs/i1_startup-config.cfg 
+Jun 17 09:23:30.714 HYPERVISOR: exec_cmd: vm start R1 
+Jun 17 09:24:00.958 HYPERVISOR: exec_cmd: vm extract_config R1 
+Jun 17 09:30:00.969 HYPERVISOR: exec_cmd: vm extract_config R1 
+Jun 17 10:54:36.244 HYPERVISOR: exec_cmd: vm get_status R1 
+Jun 17 10:54:36.245 HYPERVISOR: exec_cmd: vm stop R1 
+Jun 17 10:54:36.341 VM: VM R1 shutdown.
+Jun 17 10:54:36.342 HYPERVISOR: exec_cmd: vm extract_config R1 
+Jun 17 10:55:24.795 HYPERVISOR: exec_cmd: vm set_ghost_status R1 2 
+Jun 17 10:55:24.795 HYPERVISOR: exec_cmd: vm set_ghost_file R1 /Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips/c7200-adventerprisek9-mz.151-4.M1.bin-512.ghost 
+Jun 17 10:55:24.795 HYPERVISOR: exec_cmd: vm get_status R1 
+Jun 17 10:55:24.796 HYPERVISOR: exec_cmd: vm set_config R1 configs/i1_startup-config.cfg configs/i1_private-config.cfg 
+Jun 17 10:55:24.796 HYPERVISOR: exec_cmd: vm start R1 
+Jun 17 10:55:55.038 HYPERVISOR: exec_cmd: vm extract_config R1 
+Jun 17 10:58:55.046 HYPERVISOR: exec_cmd: vm extract_config R1 
+Jun 17 10:59:25.048 HYPERVISOR: exec_cmd: vm extract_config R1 
+Jun 17 12:03:48.560 HYPERVISOR: exec_cmd: vm get_status R1 
+Jun 17 12:03:48.565 HYPERVISOR: exec_cmd: vm stop R1 
+Jun 17 12:03:48.661 VM: VM R1 shutdown.
+Jun 17 12:03:48.662 HYPERVISOR: exec_cmd: vm extract_config R1 

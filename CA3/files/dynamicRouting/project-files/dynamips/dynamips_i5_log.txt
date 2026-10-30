@@ -1,0 +1,12 @@
+Jun 17 09:19:39.748 HYPERVISOR: Release 0.2.23-amd64/Darwin (tag 2023010200)
+Jun 17 09:19:39.749 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 61880.
+Jun 17 09:19:39.749 HYPERVISOR: exec_cmd: hypervisor version 
+Jun 17 09:19:39.749 HYPERVISOR: exec_cmd: hypervisor working_dir /Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips 
+Jun 17 09:19:39.749 GENERAL: working_dir=/Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips
+Jun 17 09:19:39.749 HYPERVISOR: exec_cmd: ethsw create Switch1 
+Jun 17 09:20:00.045 HYPERVISOR: exec_cmd: nio create_udp udp-f8c9ca25-032c-4df8-9cb6-dbe7f312ab7d 10029 127.0.0.1 10028 
+Jun 17 09:20:00.045 HYPERVISOR: exec_cmd: ethsw add_nio Switch1 udp-f8c9ca25-032c-4df8-9cb6-dbe7f312ab7d 
+Jun 17 09:20:00.048 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-f8c9ca25-032c-4df8-9cb6-dbe7f312ab7d 1 
+Jun 17 09:20:22.825 HYPERVISOR: exec_cmd: nio create_udp udp-0044fb13-495b-456c-950a-2da6ad83a343 10035 127.0.0.1 10034 
+Jun 17 09:20:22.825 HYPERVISOR: exec_cmd: ethsw add_nio Switch1 udp-0044fb13-495b-456c-950a-2da6ad83a343 
+Jun 17 09:20:22.844 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-0044fb13-495b-456c-950a-2da6ad83a343 1 

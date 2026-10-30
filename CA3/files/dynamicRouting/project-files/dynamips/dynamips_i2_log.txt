@@ -1,0 +1,51 @@
+Jun 17 09:18:37.032 HYPERVISOR: Release 0.2.23-amd64/Darwin (tag 2023010200)
+Jun 17 09:18:37.032 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 61683.
+Jun 17 09:18:37.042 HYPERVISOR: exec_cmd: hypervisor version 
+Jun 17 09:18:37.042 HYPERVISOR: exec_cmd: hypervisor working_dir /Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips 
+Jun 17 09:18:37.042 GENERAL: working_dir=/Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips
+Jun 17 09:18:37.042 HYPERVISOR: exec_cmd: hypervisor working_dir /Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips/0b9bebc5-311f-4b45-bd36-34564c4ebaeb 
+Jun 17 09:18:37.042 GENERAL: working_dir=/Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips/0b9bebc5-311f-4b45-bd36-34564c4ebaeb
+Jun 17 09:18:37.042 HYPERVISOR: exec_cmd: vm create R2 2 c7200 
+Jun 17 09:18:37.043 VM: VM R2 created.
+Jun 17 09:18:37.043 HYPERVISOR: exec_cmd: vm set_con_tcp_port R2 5002 
+Jun 17 09:18:37.043 HYPERVISOR: exec_cmd: c7200 get_mac_addr R2 
+Jun 17 09:18:37.043 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 17 09:18:37.043 HYPERVISOR: exec_cmd: vm slot_add_binding R2 0 0 C7200-IO-FE 
+Jun 17 09:18:37.043 HYPERVISOR: exec_cmd: vm set_disk0 R2 0 
+Jun 17 09:18:37.044 HYPERVISOR: exec_cmd: vm set_ios R2 /Users/mahdis/Downloads/c7200-adventerprisek9-mz.151-4.M1.bin 
+Jun 17 09:18:37.044 HYPERVISOR: exec_cmd: vm set_nvram R2 512 
+Jun 17 09:18:37.044 HYPERVISOR: exec_cmd: vm set_ram R2 512 
+Jun 17 09:18:37.044 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 17 09:18:37.044 HYPERVISOR: exec_cmd: vm slot_add_binding R2 1 0 PA-FE-TX 
+Jun 17 09:18:37.044 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 17 09:18:37.045 HYPERVISOR: exec_cmd: vm slot_add_binding R2 2 0 PA-4T+ 
+Jun 17 09:19:17.710 HYPERVISOR: exec_cmd: nio create_udp udp-df16f783-97ee-4c4f-a514-486df0f823c9 10016 127.0.0.1 10017 
+Jun 17 09:19:17.929 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 2 0 udp-df16f783-97ee-4c4f-a514-486df0f823c9 
+Jun 17 09:19:17.930 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 17 09:19:27.339 HYPERVISOR: exec_cmd: nio create_udp udp-4e730d7e-f6e1-460e-871c-60b28a14fdaf 10020 127.0.0.1 10021 
+Jun 17 09:19:27.340 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 2 1 udp-4e730d7e-f6e1-460e-871c-60b28a14fdaf 
+Jun 17 09:19:27.341 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 17 09:20:27.860 HYPERVISOR: exec_cmd: vm set_ghost_status R2 2 
+Jun 17 09:20:27.860 HYPERVISOR: exec_cmd: vm set_ghost_file R2 /Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips/c7200-adventerprisek9-mz.151-4.M1.bin-512.ghost 
+Jun 17 09:20:27.860 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 17 09:20:27.861 HYPERVISOR: exec_cmd: vm set_config R2 configs/i2_startup-config.cfg 
+Jun 17 09:20:27.861 HYPERVISOR: exec_cmd: vm start R2 
+Jun 17 09:20:58.132 HYPERVISOR: exec_cmd: vm extract_config R2 
+Jun 17 09:23:13.014 HYPERVISOR: exec_cmd: vm set_ghost_status R2 2 
+Jun 17 09:23:13.016 HYPERVISOR: exec_cmd: vm set_ghost_file R2 /Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips/c7200-adventerprisek9-mz.151-4.M1.bin-512.ghost 
+Jun 17 09:23:13.016 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 17 09:23:28.111 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 17 09:23:28.112 HYPERVISOR: exec_cmd: vm stop R2 
+Jun 17 09:23:28.213 VM: VM R2 shutdown.
+Jun 17 09:23:28.214 HYPERVISOR: exec_cmd: vm extract_config R2 
+Jun 17 09:23:30.713 HYPERVISOR: exec_cmd: vm set_ghost_status R2 2 
+Jun 17 09:23:30.714 HYPERVISOR: exec_cmd: vm set_ghost_file R2 /Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips/c7200-adventerprisek9-mz.151-4.M1.bin-512.ghost 
+Jun 17 09:23:30.714 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 17 09:23:30.715 HYPERVISOR: exec_cmd: vm set_config R2 configs/i2_startup-config.cfg 
+Jun 17 09:23:30.715 HYPERVISOR: exec_cmd: vm start R2 
+Jun 17 09:24:00.960 HYPERVISOR: exec_cmd: vm extract_config R2 
+Jun 17 09:30:30.970 HYPERVISOR: exec_cmd: vm extract_config R2 
+Jun 17 10:54:36.243 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 17 10:54:36.245 HYPERVISOR: exec_cmd: vm stop R2 
+Jun 17 10:54:36.337 VM: VM R2 shutdown.
+Jun 17 10:54:36.338 HYPERVISOR: exec_cmd: vm extract_config R2 

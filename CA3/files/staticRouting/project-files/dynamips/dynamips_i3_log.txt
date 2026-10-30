@@ -1,0 +1,64 @@
+Jun 17 09:18:38.894 HYPERVISOR: Release 0.2.23-amd64/Darwin (tag 2023010200)
+Jun 17 09:18:38.895 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 61695.
+Jun 17 09:18:38.895 HYPERVISOR: exec_cmd: hypervisor version 
+Jun 17 09:18:38.895 HYPERVISOR: exec_cmd: hypervisor working_dir /Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips 
+Jun 17 09:18:38.895 GENERAL: working_dir=/Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips
+Jun 17 09:18:38.895 HYPERVISOR: exec_cmd: hypervisor working_dir /Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips/e1ff79ba-ce42-4671-bf6c-59b9ed8e5f4e 
+Jun 17 09:18:38.895 GENERAL: working_dir=/Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips/e1ff79ba-ce42-4671-bf6c-59b9ed8e5f4e
+Jun 17 09:18:38.895 HYPERVISOR: exec_cmd: vm create R3 3 c7200 
+Jun 17 09:18:38.895 VM: VM R3 created.
+Jun 17 09:18:38.896 HYPERVISOR: exec_cmd: vm set_con_tcp_port R3 5003 
+Jun 17 09:18:38.896 HYPERVISOR: exec_cmd: c7200 get_mac_addr R3 
+Jun 17 09:18:38.896 HYPERVISOR: exec_cmd: vm get_status R3 
+Jun 17 09:18:38.896 HYPERVISOR: exec_cmd: vm slot_add_binding R3 0 0 C7200-IO-FE 
+Jun 17 09:18:38.896 HYPERVISOR: exec_cmd: vm set_disk0 R3 0 
+Jun 17 09:18:38.897 HYPERVISOR: exec_cmd: vm set_ios R3 /Users/mahdis/Downloads/c7200-adventerprisek9-mz.151-4.M1.bin 
+Jun 17 09:18:38.897 HYPERVISOR: exec_cmd: vm set_nvram R3 512 
+Jun 17 09:18:38.897 HYPERVISOR: exec_cmd: vm set_ram R3 512 
+Jun 17 09:18:38.897 HYPERVISOR: exec_cmd: vm get_status R3 
+Jun 17 09:18:38.897 HYPERVISOR: exec_cmd: vm slot_add_binding R3 1 0 PA-FE-TX 
+Jun 17 09:18:38.897 HYPERVISOR: exec_cmd: vm get_status R3 
+Jun 17 09:18:38.897 HYPERVISOR: exec_cmd: vm slot_add_binding R3 2 0 PA-4T+ 
+Jun 17 09:18:55.504 HYPERVISOR: exec_cmd: nio create_udp udp-d3a9f46a-1e51-4ffa-933d-62ede119247d 10002 127.0.0.1 10003 
+Jun 17 09:18:55.726 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R3 2 0 udp-d3a9f46a-1e51-4ffa-933d-62ede119247d 
+Jun 17 09:18:55.726 HYPERVISOR: exec_cmd: vm get_status R3 
+Jun 17 09:19:17.707 HYPERVISOR: exec_cmd: nio create_udp udp-a4fc58b6-3988-458a-8fbd-957bcda61ab2 10014 127.0.0.1 10015 
+Jun 17 09:19:17.707 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R3 2 1 udp-a4fc58b6-3988-458a-8fbd-957bcda61ab2 
+Jun 17 09:19:17.708 HYPERVISOR: exec_cmd: vm get_status R3 
+Jun 17 09:19:56.462 HYPERVISOR: exec_cmd: nio create_udp udp-36a568e7-9579-43a8-a6ea-7fbd6006f363 10026 127.0.0.1 10027 
+Jun 17 09:19:56.463 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R3 0 0 udp-36a568e7-9579-43a8-a6ea-7fbd6006f363 
+Jun 17 09:19:56.463 HYPERVISOR: exec_cmd: vm get_status R3 
+Jun 17 09:20:27.860 HYPERVISOR: exec_cmd: vm set_ghost_status R3 2 
+Jun 17 09:20:27.861 HYPERVISOR: exec_cmd: vm set_ghost_file R3 /Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips/c7200-adventerprisek9-mz.151-4.M1.bin-512.ghost 
+Jun 17 09:20:27.861 HYPERVISOR: exec_cmd: vm get_status R3 
+Jun 17 09:20:27.861 HYPERVISOR: exec_cmd: vm set_config R3 configs/i3_startup-config.cfg 
+Jun 17 09:20:27.861 HYPERVISOR: exec_cmd: vm start R3 
+Jun 17 09:20:58.095 HYPERVISOR: exec_cmd: vm extract_config R3 
+Jun 17 09:23:13.016 HYPERVISOR: exec_cmd: vm set_ghost_status R3 2 
+Jun 17 09:23:13.017 HYPERVISOR: exec_cmd: vm set_ghost_file R3 /Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips/c7200-adventerprisek9-mz.151-4.M1.bin-512.ghost 
+Jun 17 09:23:13.018 HYPERVISOR: exec_cmd: vm get_status R3 
+Jun 17 09:23:28.111 HYPERVISOR: exec_cmd: vm get_status R3 
+Jun 17 09:23:28.112 HYPERVISOR: exec_cmd: vm stop R3 
+Jun 17 09:23:28.233 VM: VM R3 shutdown.
+Jun 17 09:23:28.234 HYPERVISOR: exec_cmd: vm extract_config R3 
+Jun 17 09:23:30.715 HYPERVISOR: exec_cmd: vm set_ghost_status R3 2 
+Jun 17 09:23:30.715 HYPERVISOR: exec_cmd: vm set_ghost_file R3 /Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips/c7200-adventerprisek9-mz.151-4.M1.bin-512.ghost 
+Jun 17 09:23:30.715 HYPERVISOR: exec_cmd: vm get_status R3 
+Jun 17 09:23:30.715 HYPERVISOR: exec_cmd: vm set_config R3 configs/i3_startup-config.cfg 
+Jun 17 09:23:30.715 HYPERVISOR: exec_cmd: vm start R3 
+Jun 17 09:24:00.950 HYPERVISOR: exec_cmd: vm extract_config R3 
+Jun 17 10:54:36.244 HYPERVISOR: exec_cmd: vm get_status R3 
+Jun 17 10:54:36.245 HYPERVISOR: exec_cmd: vm stop R3 
+Jun 17 10:54:36.359 VM: VM R3 shutdown.
+Jun 17 10:54:36.359 HYPERVISOR: exec_cmd: vm extract_config R3 
+Jun 17 10:55:24.791 HYPERVISOR: exec_cmd: vm set_ghost_status R3 2 
+Jun 17 10:55:24.793 HYPERVISOR: exec_cmd: vm set_ghost_file R3 /Users/mahdis/GNS3/projects/staticRouting/project-files/dynamips/c7200-adventerprisek9-mz.151-4.M1.bin-512.ghost 
+Jun 17 10:55:24.793 HYPERVISOR: exec_cmd: vm get_status R3 
+Jun 17 10:55:24.794 HYPERVISOR: exec_cmd: vm set_config R3 configs/i3_startup-config.cfg 
+Jun 17 10:55:24.794 HYPERVISOR: exec_cmd: vm start R3 
+Jun 17 10:55:55.018 HYPERVISOR: exec_cmd: vm extract_config R3 
+Jun 17 10:58:55.026 HYPERVISOR: exec_cmd: vm extract_config R3 
+Jun 17 12:03:48.560 HYPERVISOR: exec_cmd: vm get_status R3 
+Jun 17 12:03:48.565 HYPERVISOR: exec_cmd: vm stop R3 
+Jun 17 12:03:48.688 VM: VM R3 shutdown.
+Jun 17 12:03:48.689 HYPERVISOR: exec_cmd: vm extract_config R3 
